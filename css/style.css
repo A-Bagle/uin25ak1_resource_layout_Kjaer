@@ -22,13 +22,21 @@ main {
 
 nav {
     display: flex;
-    justify-content: center;
-    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
     background-color: #2A324B;
     padding: 15px;
     width: 800px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+    position: relative;
+}
+
+.button-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-grow: 1;
 }
 
 button {
@@ -40,6 +48,7 @@ button {
     font-size: 18px;
     font-family: 'Roboto', sans-serif;
     font-weight: bold;
+    margin: 0 5px;
 }
 
 button.active {
@@ -77,4 +86,3 @@ li a {
 li a:hover {
     text-decoration: underline;
 }
-
