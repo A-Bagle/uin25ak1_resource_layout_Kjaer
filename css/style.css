@@ -20,21 +20,9 @@ main {
     position: relative;
 }
 
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #2A324B;
-    padding: 15px;
-    width: 800px;
-    border-top-left-radius: 0;
-    border-top-right-radius: 0;
-    position: relative;
-}
-
 .button-container {
     display: flex;
-    gap: 15px;
+    gap: 40px;
     justify-content: center;
     flex-grow: 1;
 }
