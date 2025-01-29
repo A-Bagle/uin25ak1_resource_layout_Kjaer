@@ -10,5 +10,50 @@
     <title>Arbeidskrav 1</title>
 
     <link rel="stylesheet" href="css/style.css" type="text/css"> 
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 
 </head>
+
+<body>
+    <main>
+        <nav>
+            <button data-category="HTML" class="active">HTML</button>
+            <button data-category="CSS">CSS</button>
+            <button data-category="JavaScript">JavaScript</button>
+            <button data-category="React">React</button>
+            <button data-category="Sanity and headless CMS">Sanity and headless CMS</button>
+        </nav>
+        
+        <section id="content">
+            <h1 id="category-title">HTML</h1>
+            <p id="category-description"></p>
+            <ul id="resource-list"></ul>
+        </section>
+    </main>
+    
+    <script src="resources.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const buttons = document.querySelectorAll("nav button");
+            const title = document.getElementById("category-title");
+            const description = document.getElementById("category-description");
+            const resourceList = document.getElementById("resource-list");
+
+            function updateContent(category) {
+                const filteredResources = resources.filter(item => item.category === category);
+                title.textContent = category;
+                description.textContent = filteredResources[0]?.description || "";
+                resourceList.innerHTML = filteredResources.map(res => `<li><a href="${res.url}" target="_blank">${res.name}</a></li>`).join(" ");
+            }
+
+            buttons.forEach(button => {
+                button.addEventListener("click", () => {
+                    buttons.forEach(btn => btn.classList.remove("active"));
+                    button.classList.add("active");
+                    updateContent(button.dataset.category);
+                });
+            });
+            updateContent("HTML");
+        });
+    </script>
+</body>
